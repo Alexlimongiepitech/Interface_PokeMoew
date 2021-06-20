@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>473</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="main_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>471</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <widget class="QPushButton" name="pokemon_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pokemon</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>50</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Fish</string>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="pokemon_progressBar">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="fish_progressBar">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>130</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>400</y>
+       <width>221</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="discord_chat_pushButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>Discord Chat</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="discord_chat_x_y">
+        <property name="cursor">
+         <cursorShape>ForbiddenCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>X = | Y =</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QProgressBar" name="battle_progressBar">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>130</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="battle_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>50</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Battle</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pokeball_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>471</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="visible">
+     <bool>false</bool>
+    </property>
+    <widget class="QPushButton" name="pokeball_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pokepall</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="greatball_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>50</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Greatball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ultraball_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>50</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ultraball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="premierball_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>160</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Premierball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="masterball_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>160</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Masterball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>400</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="pokeball_fish_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>471</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="visible">
+     <bool>false</bool>
+    </property>
+    <widget class="QPushButton" name="pokeball_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>180</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Pokepall</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="greatball_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>180</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Greatball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ultraball_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>180</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ultraball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="premierball_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>290</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Premierball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="masterball_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>290</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Masterball</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pull_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>401</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PULL</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>400</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="diveball_fish_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>290</y>
+       <width>81</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Diveball</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="battle_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>471</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="visible">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>131</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="gym_verticalLayout">
+      <item>
+       <widget class="QPushButton" name="gym_kanto_pushButton">
+        <property name="text">
+         <string>Kanto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="gym_johto_pushButton">
+        <property name="text">
+         <string>Johto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="gym_hoenn_pushButton">
+        <property name="text">
+         <string>Hoenn</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="gym_sinnoh_pushButton">
+        <property name="text">
+         <string>Sinnoh</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="gym_unova_pushButton">
+        <property name="text">
+         <string>Unova</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="gym_kalos_pushButton">
+        <property name="text">
+         <string>Kalos</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="elite_four_label">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>30</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Elite Four</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="champions_label">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>30</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Champions</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="gym_label">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>30</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Gym</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>40</y>
+       <width>131</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="elite_four_verticalLayout">
+      <item>
+       <widget class="QPushButton" name="elite_four_kanto_pushButton">
+        <property name="text">
+         <string>Kanto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="elite_four_johto_pushButton">
+        <property name="text">
+         <string>Johto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="elite_four_hoenn_pushButton">
+        <property name="text">
+         <string>Hoenn</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="elite_four_sinnoh_pushButton">
+        <property name="text">
+         <string>Sinnoh</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="elite_four_unova_pushButton">
+        <property name="text">
+         <string>Unova</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="elite_four_kalos_pushButton">
+        <property name="text">
+         <string>Kalos</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>40</y>
+       <width>131</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="champions_verticalLayout">
+      <item>
+       <widget class="QPushButton" name="champions_kanto_pushButton">
+        <property name="text">
+         <string>Kanto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="champions_johto_pushButton">
+        <property name="text">
+         <string>Johto</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="champions_hoenn_pushButton">
+        <property name="text">
+         <string>Hoenn</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="champions_sinnoh_pushButton">
+        <property name="text">
+         <string>Sinnoh</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="champions_unova_pushButton">
+        <property name="text">
+         <string>Unova</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="champions_kalos_pushButton">
+        <property name="text">
+         <string>Kalos</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>360</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="npc_horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="npc_xp_1_pushButton">
+        <property name="text">
+         <string>NPC 675725560470831125</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="npc_xp_2_pushButton">
+        <property name="text">
+         <string>NPC 508692505810698241</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="cancel_battle_pushButton">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>400</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>main_widget</zorder>
+   <zorder>pokeball_fish_widget</zorder>
+   <zorder>pokeball_widget</zorder>
+   <zorder>battle_widget</zorder>
+  </widget>
+  <action name="actionDiscord_chat">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Discord chat</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pokemon_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pokemon_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>290</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>290</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pokeball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pokeball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greatball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greatball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ultraball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ultraball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>premierball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>premierball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>masterball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>masterball_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancel_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>440</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancel_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>440</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pokeball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pokeball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greatball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>greatball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ultraball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ultraball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>premierball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>premierball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>diveball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>diveball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>masterball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>masterball_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>311</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancel_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>main_widget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>440</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancel_fish_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>pokeball_fish_widget</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>440</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>discord_chat_pushButton</sender>
+   <signal>released()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>412</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
