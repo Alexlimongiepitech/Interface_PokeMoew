@@ -16,7 +16,7 @@ import time
 POS_DISCORD_CHAT = []
 
 
-class progressThreadPokemon(QThread):
+class progressThread(QThread):
     progress_update = pyqtSignal(int)  # or pyqtSignal(int)
 
     def __init__(self):
@@ -37,8 +37,9 @@ class progressThreadPokemon(QThread):
 class Ui_MainWindow(object):
     def __init__(self) -> None:
         super().__init__()
-        self.progress_thread_pokemon = progressThreadPokemon()
-        self.progress_thread_fish = progressThreadPokemon()
+        self.progress_thread_pokemon = progressThread()
+        self.progress_thread_fish = progressThread()
+        self.progress_thread_battle = progressThread()
 
     def update_pos(self):
         self.pos = backend.find_discord_chat()
@@ -55,16 +56,18 @@ class Ui_MainWindow(object):
                 self.update_pokemon_progressBar
             )
             self.pokemon_pushButton.setEnabled(False)
+            self.pokemon_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
 
     def update_pokemon_progressBar(self, maxVal):
         self.pokemon_progressBar.setValue(self.pokemon_progressBar.value() + maxVal)
-        print("pokemon_progressBar", self.pokemon_progressBar.value())
+        # print("pokemon_progressBar", self.pokemon_progressBar.value())
         if maxVal == 0:
             self.pokemon_progressBar.setValue(self.pokemon_progressBar.maximum())
         if self.pokemon_progressBar.value() == self.pokemon_progressBar.maximum():
             self.progress_thread_pokemon.disconnect()
             self.pokemon_progressBar.setValue(0)
             self.pokemon_pushButton.setEnabled(True)
+            self.pokemon_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
 
     def pokemon_fish_pushButton_fonction(self):
         self.update_pos()
@@ -77,16 +80,18 @@ class Ui_MainWindow(object):
                 self.update_fish_progressBar
             )
             self.fish_pushButton.setEnabled(False)
+            self.fish_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
 
     def update_fish_progressBar(self, maxVal):
         self.fish_progressBar.setValue(self.fish_progressBar.value() + maxVal)
-        print("fish_progressBar", self.fish_progressBar.value())
+        # print("fish_progressBar", self.fish_progressBar.value())
         if maxVal == 0:
             self.fish_progressBar.setValue(self.fish_progressBar.maximum())
         if self.fish_progressBar.value() == self.fish_progressBar.maximum():
             self.progress_thread_fish.disconnect()
             self.fish_progressBar.setValue(0)
             self.fish_pushButton.setEnabled(True)
+            self.fish_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
 
     def pokeball_pushButton_fonction(self):
         self.update_pos()
@@ -176,6 +181,439 @@ class Ui_MainWindow(object):
 
     def cancel_fish_pushButton_fonction(self):
         self.pokeball_fish_widget.hide()
+        self.main_widget.show()
+
+    def battle_pushButton_fonction(self):
+        self.battle_widget.show()
+        self.main_widget.hide()
+        self.swap1_pushButton.setEnabled(False)
+        self.swap1_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+        self.swap2_pushButton.setEnabled(True)
+        self.swap2_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.swap3_pushButton.setEnabled(True)
+        self.swap3_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+
+    def update_battle_progressBar(self, maxVal):
+        self.battle_progressBar.setValue(self.battle_progressBar.value() + maxVal)
+        # print("battle_progressBar", self.battle_progressBar.value())
+        if maxVal == 0:
+            self.battle_progressBar.setValue(self.battle_progressBar.maximum())
+        if self.battle_progressBar.value() == self.battle_progressBar.maximum():
+            self.progress_thread_battle.disconnect()
+            self.battle_progressBar.setValue(0)
+            self.battle_pushButton.setEnabled(True)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+
+    def gym_kanto_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_gym_widget.show()
+        self.region_name_gym_label.setText("Kanto")
+
+    def gym_johto_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_gym_widget.show()
+        self.region_name_gym_label.setText("Johto")
+
+    def gym_hoenn_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_gym_widget.show()
+        self.region_name_gym_label.setText("Hoenn")
+
+    def gym_sinnoh_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_gym_widget.show()
+        self.region_name_gym_label.setText("Sinnoh")
+
+    def gym_unova_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_gym_widget.show()
+        self.region_name_gym_label.setText("Unova")
+
+    def gym_kalos_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_gym_widget.show()
+        self.region_name_gym_label.setText("Kalos")
+
+    def elite_four_kanto_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_elite_four_widget.show()
+        self.region_name_elite_four_label.setText("Kanto")
+
+    def elite_four_johto_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_elite_four_widget.show()
+        self.region_name_elite_four_label.setText("Johto")
+
+    def elite_four_hoenn_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_elite_four_widget.show()
+        self.region_name_elite_four_label.setText("Hoenn")
+
+    def elite_four_sinnoh_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_elite_four_widget.show()
+        self.region_name_elite_four_label.setText("Sinnoh")
+
+    def elite_four_unova_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_elite_four_widget.show()
+        self.region_name_elite_four_label.setText("Unova")
+
+    def elite_four_kalos_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.battle_elite_four_widget.show()
+        self.region_name_elite_four_label.setText("Kalos")
+
+    def npc_xp_1_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle user 675725560470831125")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def npc_xp_2_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle user 508692505810698241")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def cancel_battle_pushButton_fonction(self):
+        self.battle_widget.hide()
+        self.main_widget.show()
+
+    def arena1_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 1)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena2_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 2)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena3_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 3)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena4_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 4)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena5_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 5)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena6_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 6)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena7_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 7)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def arena8_pushButton_fonction(self):
+        nb = backend.good_id_arena(self.region_name_gym_label.text(), 8)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_gym_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def elite1_pushButton_fonction(self):
+        nb = backend.good_id_elite_four(self.region_name_gym_label.text(), 1)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_elite_four_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def elite2_pushButton_fonction(self):
+        nb = backend.good_id_elite_four(self.region_name_gym_label.text(), 2)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_elite_four_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def elite3_pushButton_fonction(self):
+        nb = backend.good_id_elite_four(self.region_name_gym_label.text(), 3)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_elite_four_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def elite4_pushButton_fonction(self):
+        nb = backend.good_id_elite_four(self.region_name_gym_label.text(), 4)
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc " + str(nb))
+            self.battle_elite_four_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def champions_kanto_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc 13")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def champions_johto_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc 26")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def champions_hoenn_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc 39")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def champions_sinnoh_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc 52")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def champions_unova_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc 65")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def champions_kalos_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, ";battle npc 78")
+            self.battle_widget.hide()
+            self.battle_pokemon_widget.show()
+            self.progress_thread_battle.start()
+            self.progress_thread_battle.progress_update.connect(
+                self.update_battle_progressBar
+            )
+            self.battle_pushButton.setEnabled(False)
+            self.battle_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def attack1_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "1")
+
+    def attack2_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "2")
+
+    def attack3_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "3")
+
+    def attack4_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "4")
+
+    def swap1_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "swap 1")
+            self.swap1_pushButton.setEnabled(False)
+            self.swap1_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+            self.swap2_pushButton.setEnabled(True)
+            self.swap2_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+            self.swap3_pushButton.setEnabled(True)
+            self.swap3_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+
+    def swap2_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "swap 2")
+            self.swap1_pushButton.setEnabled(True)
+            self.swap1_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+            self.swap2_pushButton.setEnabled(False)
+            self.swap2_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+            self.swap3_pushButton.setEnabled(True)
+            self.swap3_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+
+    def swap3_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "swap 3")
+            self.swap1_pushButton.setEnabled(True)
+            self.swap1_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+            self.swap2_pushButton.setEnabled(True)
+            self.swap2_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+            self.swap3_pushButton.setEnabled(False)
+            self.swap3_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ForbiddenCursor))
+
+    def forfeit_pushButton_fonction(self):
+        self.update_pos()
+        if self.pos != [0, 0]:
+            backend.send_on_discord_chat(self.pos, "forfeit")
+            self.battle_pokemon_widget.hide()
+            self.main_widget.show()
+
+    def cancel_pokemon_pushButton_fonction(self):
+        self.battle_pokemon_widget.hide()
+        self.main_widget.show()
+
+    def cancel_battle_gym_pushButton_fonction(self):
+        self.battle_gym_widget.hide()
+        self.main_widget.show()
+
+    def cancel_battle_elite_four_pushButton_fonction(self):
+        self.battle_elite_four_widget.hide()
+        self.main_widget.show()
+
+    def cancel_pokemon_pushButton_fonction(self):
+        self.battle_pokemon_widget.hide()
         self.main_widget.show()
 
     def setupUi(self, MainWindow):
@@ -289,8 +727,8 @@ class Ui_MainWindow(object):
         self.diveball_fish_pushButton.setObjectName("diveball_fish_pushButton")
         self.battle_widget = QtWidgets.QWidget(self.centralwidget)
         self.battle_widget.setGeometry(QtCore.QRect(0, 0, 471, 431))
-        self.battle_widget.setObjectName("battle_widget")
         self.battle_widget.setVisible(False)
+        self.battle_widget.setObjectName("battle_widget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.battle_widget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 40, 131, 311))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
@@ -401,7 +839,7 @@ class Ui_MainWindow(object):
         self.champions_kalos_pushButton.setObjectName("champions_kalos_pushButton")
         self.champions_verticalLayout.addWidget(self.champions_kalos_pushButton)
         self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.battle_widget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(10, 370, 451, 41))
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(10, 360, 451, 41))
         self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
         self.npc_horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
         self.npc_horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -415,16 +853,161 @@ class Ui_MainWindow(object):
         self.cancel_battle_pushButton = QtWidgets.QPushButton(self.battle_widget)
         self.cancel_battle_pushButton.setGeometry(QtCore.QRect(440, 400, 31, 31))
         self.cancel_battle_pushButton.setObjectName("cancel_battle_pushButton")
+        self.battle_gym_widget = QtWidgets.QWidget(self.centralwidget)
+        self.battle_gym_widget.setGeometry(QtCore.QRect(0, 0, 471, 431))
+        self.battle_gym_widget.setVisible(False)
+        self.battle_gym_widget.setObjectName("battle_gym_widget")
+        self.cancel_battle_gym_pushButton = QtWidgets.QPushButton(
+            self.battle_gym_widget
+        )
+        self.cancel_battle_gym_pushButton.setGeometry(QtCore.QRect(440, 400, 31, 31))
+        self.cancel_battle_gym_pushButton.setObjectName("cancel_battle_gym_pushButton")
+        self.gridLayoutWidget = QtWidgets.QWidget(self.battle_gym_widget)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(30, 70, 411, 357))
+        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
+        self.arena2_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena2_pushButton.setObjectName("arena2_pushButton")
+        self.gridLayout.addWidget(self.arena2_pushButton, 0, 1, 1, 1)
+        self.arena3_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena3_pushButton.setObjectName("arena3_pushButton")
+        self.gridLayout.addWidget(self.arena3_pushButton, 1, 0, 1, 1)
+        self.arena4_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena4_pushButton.setObjectName("arena4_pushButton")
+        self.gridLayout.addWidget(self.arena4_pushButton, 1, 1, 1, 1)
+        self.arena1_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena1_pushButton.setObjectName("arena1_pushButton")
+        self.gridLayout.addWidget(self.arena1_pushButton, 0, 0, 1, 1)
+        self.arena6_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena6_pushButton.setObjectName("arena6_pushButton")
+        self.gridLayout.addWidget(self.arena6_pushButton, 2, 1, 1, 1)
+        self.arena8_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena8_pushButton.setObjectName("arena8_pushButton")
+        self.gridLayout.addWidget(self.arena8_pushButton, 3, 1, 1, 1)
+        self.arena7_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena7_pushButton.setObjectName("arena7_pushButton")
+        self.gridLayout.addWidget(self.arena7_pushButton, 3, 0, 1, 1)
+        self.arena5_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.arena5_pushButton.setObjectName("arena5_pushButton")
+        self.gridLayout.addWidget(self.arena5_pushButton, 2, 0, 1, 1)
+        self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.battle_gym_widget)
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(30, 50, 411, 21))
+        self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.region_name_gym_label = QtWidgets.QLabel(self.verticalLayoutWidget_3)
+        self.region_name_gym_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.region_name_gym_label.setObjectName("region_name_gym_label")
+        self.verticalLayout.addWidget(self.region_name_gym_label)
+        self.battle_elite_four_widget = QtWidgets.QWidget(self.centralwidget)
+        self.battle_elite_four_widget.setGeometry(QtCore.QRect(0, 0, 471, 431))
+        self.battle_elite_four_widget.setVisible(False)
+        self.battle_elite_four_widget.setObjectName("battle_elite_four_widget")
+        self.cancel_battle_elite_four_pushButton = QtWidgets.QPushButton(
+            self.battle_elite_four_widget
+        )
+        self.cancel_battle_elite_four_pushButton.setGeometry(
+            QtCore.QRect(440, 400, 31, 31)
+        )
+        self.cancel_battle_elite_four_pushButton.setObjectName(
+            "cancel_battle_elite_four_pushButton"
+        )
+        self.gridLayoutWidget_2 = QtWidgets.QWidget(self.battle_elite_four_widget)
+        self.gridLayoutWidget_2.setGeometry(QtCore.QRect(30, 70, 411, 357))
+        self.gridLayoutWidget_2.setObjectName("gridLayoutWidget_2")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.gridLayoutWidget_2)
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.elite2_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_2)
+        self.elite2_pushButton.setObjectName("elite2_pushButton")
+        self.gridLayout_2.addWidget(self.elite2_pushButton, 0, 1, 1, 1)
+        self.elite4_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_2)
+        self.elite4_pushButton.setObjectName("elite4_pushButton")
+        self.gridLayout_2.addWidget(self.elite4_pushButton, 1, 1, 1, 1)
+        self.elite3_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_2)
+        self.elite3_pushButton.setObjectName("elite3_pushButton")
+        self.gridLayout_2.addWidget(self.elite3_pushButton, 1, 0, 1, 1)
+        self.elite1_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_2)
+        self.elite1_pushButton.setObjectName("elite1_pushButton")
+        self.gridLayout_2.addWidget(self.elite1_pushButton, 0, 0, 1, 1)
+        self.verticalLayoutWidget_8 = QtWidgets.QWidget(self.battle_elite_four_widget)
+        self.verticalLayoutWidget_8.setGeometry(QtCore.QRect(30, 50, 411, 21))
+        self.verticalLayoutWidget_8.setObjectName("verticalLayoutWidget_8")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_8)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.region_name_elite_four_label = QtWidgets.QLabel(
+            self.verticalLayoutWidget_8
+        )
+        self.region_name_elite_four_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.region_name_elite_four_label.setObjectName("region_name_elite_four_label")
+        self.verticalLayout_2.addWidget(self.region_name_elite_four_label)
+        self.battle_pokemon_widget = QtWidgets.QWidget(self.centralwidget)
+        self.battle_pokemon_widget.setGeometry(QtCore.QRect(0, 0, 471, 431))
+        self.battle_pokemon_widget.setVisible(False)
+        self.battle_pokemon_widget.setObjectName("battle_pokemon_widget")
+        self.cancel_pokemon_pushButton = QtWidgets.QPushButton(
+            self.battle_pokemon_widget
+        )
+        self.cancel_pokemon_pushButton.setGeometry(QtCore.QRect(440, 400, 31, 31))
+        self.cancel_pokemon_pushButton.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.cancel_pokemon_pushButton.setObjectName("cancel_pokemon_pushButton")
+        self.gridLayoutWidget_3 = QtWidgets.QWidget(self.battle_pokemon_widget)
+        self.gridLayoutWidget_3.setGeometry(QtCore.QRect(30, 20, 411, 321))
+        self.gridLayoutWidget_3.setObjectName("gridLayoutWidget_3")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.gridLayoutWidget_3)
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.attack2_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_3)
+        self.attack2_pushButton.setObjectName("attack2_pushButton")
+        self.gridLayout_3.addWidget(self.attack2_pushButton, 0, 1, 1, 1)
+        self.attack4_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_3)
+        self.attack4_pushButton.setObjectName("attack4_pushButton")
+        self.gridLayout_3.addWidget(self.attack4_pushButton, 1, 1, 1, 1)
+        self.attack3_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_3)
+        self.attack3_pushButton.setObjectName("attack3_pushButton")
+        self.gridLayout_3.addWidget(self.attack3_pushButton, 1, 0, 1, 1)
+        self.attack1_pushButton = QtWidgets.QPushButton(self.gridLayoutWidget_3)
+        self.attack1_pushButton.setObjectName("attack1_pushButton")
+        self.gridLayout_3.addWidget(self.attack1_pushButton, 0, 0, 1, 1)
+        self.horizontalLayoutWidget_4 = QtWidgets.QWidget(self.battle_pokemon_widget)
+        self.horizontalLayoutWidget_4.setGeometry(QtCore.QRect(30, 360, 411, 25))
+        self.horizontalLayoutWidget_4.setObjectName("horizontalLayoutWidget_4")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_4)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.swap1_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_4)
+        self.swap1_pushButton.setEnabled(False)
+        self.swap1_pushButton.setObjectName("swap1_pushButton")
+        self.horizontalLayout_2.addWidget(self.swap1_pushButton)
+        self.swap2_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_4)
+        self.swap2_pushButton.setObjectName("swap2_pushButton")
+        self.horizontalLayout_2.addWidget(self.swap2_pushButton)
+        self.swap3_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_4)
+        self.swap3_pushButton.setObjectName("swap3_pushButton")
+        self.horizontalLayout_2.addWidget(self.swap3_pushButton)
+        self.forfeit_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget_4)
+        self.forfeit_pushButton.setObjectName("forfeit_pushButton")
+        self.horizontalLayout_2.addWidget(self.forfeit_pushButton)
+        self.battle_gym_widget.raise_()
+        self.battle_widget.raise_()
         self.main_widget.raise_()
         self.pokeball_fish_widget.raise_()
         self.pokeball_widget.raise_()
-        self.battle_widget.raise_()
+        self.battle_elite_four_widget.raise_()
+        self.battle_pokemon_widget.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.actionDiscord_chat = QtWidgets.QAction(MainWindow)
         self.actionDiscord_chat.setCheckable(False)
         self.actionDiscord_chat.setObjectName("actionDiscord_chat")
 
         self.update_pos()
+        self.pokemon_progressBar.setMaximum(10)
+        self.fish_progressBar.setMaximum(25)
+        self.battle_progressBar.setMaximum(60)
 
         self.retranslateUi(MainWindow)
 
@@ -474,27 +1057,83 @@ class Ui_MainWindow(object):
         ### BATTLE
         ###
 
-        # self.gym_kanto_pushButton.released.connect()
-        # self.gym_johto_pushButton.released.connect()
-        # self.gym_hoenn_pushButton.released.connect()
-        # self.gym_sinnoh_pushButton.released.connect()
-        # self.gym_unova_pushButton.released.connect()
-        # self.gym_kalos_pushButton.released.connect()
-        # self.elite_four_kanto_pushButton.released.connect()
-        # self.elite_four_johto_pushButton.released.connect()
-        # self.elite_four_hoenn_pushButton.released.connect()
-        # self.elite_four_sinnoh_pushButton.released.connect()
-        # self.elite_four_unova_pushButton.released.connect()
-        # self.elite_four_kalos_pushButton.released.connect()
-        # self.champions_kanto_pushButton.released.connect()
-        # self.champions_johto_pushButton.released.connect()
-        # self.champions_hoenn_pushButton.released.connect()
-        # self.champions_sinnoh_pushButton.released.connect()
-        # self.champions_unova_pushButton.released.connect()
-        # self.champions_kalos_pushButton.released.connect()
-        # self.npc_xp_1_pushButton.released.connect()
-        # self.npc_xp_2_pushButton.released.connect()
-        # self.cancel_battle_pushButton.released.connect()
+        self.battle_pushButton.released.connect(self.battle_pushButton_fonction)
+        self.gym_kanto_pushButton.released.connect(self.gym_kanto_pushButton_fonction)
+        self.gym_johto_pushButton.released.connect(self.gym_johto_pushButton_fonction)
+        self.gym_hoenn_pushButton.released.connect(self.gym_hoenn_pushButton_fonction)
+        self.gym_sinnoh_pushButton.released.connect(self.gym_sinnoh_pushButton_fonction)
+        self.gym_unova_pushButton.released.connect(self.gym_unova_pushButton_fonction)
+        self.gym_kalos_pushButton.released.connect(self.gym_kalos_pushButton_fonction)
+        self.elite_four_kanto_pushButton.released.connect(
+            self.elite_four_kanto_pushButton_fonction
+        )
+        self.elite_four_johto_pushButton.released.connect(
+            self.elite_four_johto_pushButton_fonction
+        )
+        self.elite_four_hoenn_pushButton.released.connect(
+            self.elite_four_hoenn_pushButton_fonction
+        )
+        self.elite_four_sinnoh_pushButton.released.connect(
+            self.elite_four_sinnoh_pushButton_fonction
+        )
+        self.elite_four_unova_pushButton.released.connect(
+            self.elite_four_unova_pushButton_fonction
+        )
+        self.elite_four_kalos_pushButton.released.connect(
+            self.elite_four_kalos_pushButton_fonction
+        )
+        self.champions_kanto_pushButton.released.connect(
+            self.champions_kanto_pushButton_fonction
+        )
+        self.champions_johto_pushButton.released.connect(
+            self.champions_johto_pushButton_fonction
+        )
+        self.champions_hoenn_pushButton.released.connect(
+            self.champions_hoenn_pushButton_fonction
+        )
+        self.champions_sinnoh_pushButton.released.connect(
+            self.champions_sinnoh_pushButton_fonction
+        )
+        self.champions_unova_pushButton.released.connect(
+            self.champions_unova_pushButton_fonction
+        )
+        self.champions_kalos_pushButton.released.connect(
+            self.champions_kalos_pushButton_fonction
+        )
+        self.arena1_pushButton.released.connect(self.arena1_pushButton_fonction)
+        self.arena2_pushButton.released.connect(self.arena2_pushButton_fonction)
+        self.arena3_pushButton.released.connect(self.arena3_pushButton_fonction)
+        self.arena4_pushButton.released.connect(self.arena4_pushButton_fonction)
+        self.arena5_pushButton.released.connect(self.arena5_pushButton_fonction)
+        self.arena6_pushButton.released.connect(self.arena6_pushButton_fonction)
+        self.arena7_pushButton.released.connect(self.arena7_pushButton_fonction)
+        self.arena8_pushButton.released.connect(self.arena8_pushButton_fonction)
+        self.elite1_pushButton.released.connect(self.elite1_pushButton_fonction)
+        self.elite2_pushButton.released.connect(self.elite2_pushButton_fonction)
+        self.elite3_pushButton.released.connect(self.elite3_pushButton_fonction)
+        self.elite4_pushButton.released.connect(self.elite4_pushButton_fonction)
+        self.npc_xp_1_pushButton.released.connect(self.npc_xp_1_pushButton_fonction)
+        self.npc_xp_2_pushButton.released.connect(self.npc_xp_2_pushButton_fonction)
+        self.cancel_battle_pushButton.released.connect(
+            self.cancel_battle_pushButton_fonction
+        )
+        self.cancel_battle_gym_pushButton.released.connect(
+            self.cancel_battle_gym_pushButton_fonction
+        )
+        self.cancel_battle_elite_four_pushButton.released.connect(
+            self.cancel_battle_elite_four_pushButton_fonction
+        )
+        self.cancel_pokemon_pushButton.released.connect(
+            self.cancel_pokemon_pushButton_fonction
+        )
+        self.attack1_pushButton.released.connect(self.attack1_pushButton_fonction)
+        self.attack2_pushButton.released.connect(self.attack2_pushButton_fonction)
+        self.attack3_pushButton.released.connect(self.attack3_pushButton_fonction)
+        self.attack4_pushButton.released.connect(self.attack4_pushButton_fonction)
+        self.swap1_pushButton.released.connect(self.swap1_pushButton_fonction)
+        self.swap2_pushButton.released.connect(self.swap2_pushButton_fonction)
+        self.swap3_pushButton.released.connect(self.swap3_pushButton_fonction)
+        self.forfeit_pushButton.released.connect(self.forfeit_pushButton_fonction)
 
         ###
         self.discord_chat_pushButton.released.connect(MainWindow.showMinimized)
@@ -506,7 +1145,7 @@ class Ui_MainWindow(object):
         self.pokemon_pushButton.setText(_translate("MainWindow", "Pokemon"))
         self.fish_pushButton.setText(_translate("MainWindow", "Fish"))
         self.discord_chat_pushButton.setText(_translate("MainWindow", "Discord Chat"))
-        self.discord_chat_x_y.setText(_translate("MainWindow", "X = | Y ="))
+        self.discord_chat_x_y.setText(_translate("MainWindow", self.pos_str))
         self.battle_pushButton.setText(_translate("MainWindow", "Battle"))
         self.pokeball_pushButton.setText(_translate("MainWindow", "Pokepall"))
         self.greatball_pushButton.setText(_translate("MainWindow", "Greatball"))
@@ -552,6 +1191,33 @@ class Ui_MainWindow(object):
             _translate("MainWindow", "NPC 508692505810698241")
         )
         self.cancel_battle_pushButton.setText(_translate("MainWindow", "X"))
+        self.cancel_battle_gym_pushButton.setText(_translate("MainWindow", "X"))
+        self.arena2_pushButton.setText(_translate("MainWindow", "Arena 2"))
+        self.arena3_pushButton.setText(_translate("MainWindow", "Arena 3"))
+        self.arena4_pushButton.setText(_translate("MainWindow", "Arena 4"))
+        self.arena1_pushButton.setText(_translate("MainWindow", "Arena 1"))
+        self.arena6_pushButton.setText(_translate("MainWindow", "Arena 6"))
+        self.arena8_pushButton.setText(_translate("MainWindow", "Arena 8"))
+        self.arena7_pushButton.setText(_translate("MainWindow", "Arena 7"))
+        self.arena5_pushButton.setText(_translate("MainWindow", "Arena 5"))
+        self.region_name_gym_label.setText(_translate("MainWindow", "Nom de la région"))
+        self.cancel_battle_elite_four_pushButton.setText(_translate("MainWindow", "X"))
+        self.elite2_pushButton.setText(_translate("MainWindow", " Elite #2"))
+        self.elite4_pushButton.setText(_translate("MainWindow", "Elite #4"))
+        self.elite3_pushButton.setText(_translate("MainWindow", "Elite #3"))
+        self.elite1_pushButton.setText(_translate("MainWindow", " Elite #1"))
+        self.region_name_elite_four_label.setText(
+            _translate("MainWindow", "Nom de la région")
+        )
+        self.cancel_pokemon_pushButton.setText(_translate("MainWindow", "X"))
+        self.attack2_pushButton.setText(_translate("MainWindow", "Attack #2"))
+        self.attack4_pushButton.setText(_translate("MainWindow", "Attack #4"))
+        self.attack3_pushButton.setText(_translate("MainWindow", "Attack #3"))
+        self.attack1_pushButton.setText(_translate("MainWindow", "Attack #1"))
+        self.swap1_pushButton.setText(_translate("MainWindow", "Swap 1"))
+        self.swap2_pushButton.setText(_translate("MainWindow", "Swap 2"))
+        self.swap3_pushButton.setText(_translate("MainWindow", "Swap 3"))
+        self.forfeit_pushButton.setText(_translate("MainWindow", "Forfeit"))
         self.actionDiscord_chat.setText(_translate("MainWindow", "Discord chat"))
 
 

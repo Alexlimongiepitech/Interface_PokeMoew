@@ -261,11 +261,185 @@ class Ui_MainWindow(object):
         self.cancel_battle_pushButton = QPushButton(self.battle_widget)
         self.cancel_battle_pushButton.setObjectName(u"cancel_battle_pushButton")
         self.cancel_battle_pushButton.setGeometry(QRect(440, 400, 31, 31))
+        self.battle_gym_widget = QWidget(self.centralwidget)
+        self.battle_gym_widget.setObjectName(u"battle_gym_widget")
+        self.battle_gym_widget.setGeometry(QRect(0, 0, 471, 431))
+        self.battle_gym_widget.setVisible(False)
+        self.cancel_battle_gym_pushButton = QPushButton(self.battle_gym_widget)
+        self.cancel_battle_gym_pushButton.setObjectName(u"cancel_battle_gym_pushButton")
+        self.cancel_battle_gym_pushButton.setGeometry(QRect(440, 400, 31, 31))
+        self.gridLayoutWidget = QWidget(self.battle_gym_widget)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(30, 70, 411, 357))
+        self.gridLayout = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.arena2_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena2_pushButton.setObjectName(u"arena2_pushButton")
+
+        self.gridLayout.addWidget(self.arena2_pushButton, 0, 1, 1, 1)
+
+        self.arena3_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena3_pushButton.setObjectName(u"arena3_pushButton")
+
+        self.gridLayout.addWidget(self.arena3_pushButton, 1, 0, 1, 1)
+
+        self.arena4_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena4_pushButton.setObjectName(u"arena4_pushButton")
+
+        self.gridLayout.addWidget(self.arena4_pushButton, 1, 1, 1, 1)
+
+        self.arena1_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena1_pushButton.setObjectName(u"arena1_pushButton")
+
+        self.gridLayout.addWidget(self.arena1_pushButton, 0, 0, 1, 1)
+
+        self.arena6_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena6_pushButton.setObjectName(u"arena6_pushButton")
+
+        self.gridLayout.addWidget(self.arena6_pushButton, 2, 1, 1, 1)
+
+        self.arena8_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena8_pushButton.setObjectName(u"arena8_pushButton")
+
+        self.gridLayout.addWidget(self.arena8_pushButton, 3, 1, 1, 1)
+
+        self.arena7_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena7_pushButton.setObjectName(u"arena7_pushButton")
+
+        self.gridLayout.addWidget(self.arena7_pushButton, 3, 0, 1, 1)
+
+        self.arena5_pushButton = QPushButton(self.gridLayoutWidget)
+        self.arena5_pushButton.setObjectName(u"arena5_pushButton")
+
+        self.gridLayout.addWidget(self.arena5_pushButton, 2, 0, 1, 1)
+
+        self.verticalLayoutWidget_3 = QWidget(self.battle_gym_widget)
+        self.verticalLayoutWidget_3.setObjectName(u"verticalLayoutWidget_3")
+        self.verticalLayoutWidget_3.setGeometry(QRect(30, 50, 411, 21))
+        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget_3)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.region_name_gym_label = QLabel(self.verticalLayoutWidget_3)
+        self.region_name_gym_label.setObjectName(u"region_name_gym_label")
+        self.region_name_gym_label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.region_name_gym_label)
+
+        self.battle_elite_four_widget = QWidget(self.centralwidget)
+        self.battle_elite_four_widget.setObjectName(u"battle_elite_four_widget")
+        self.battle_elite_four_widget.setGeometry(QRect(0, 0, 471, 431))
+        self.battle_elite_four_widget.setVisible(False)
+        self.cancel_battle_elite_four_pushButton = QPushButton(self.battle_elite_four_widget)
+        self.cancel_battle_elite_four_pushButton.setObjectName(u"cancel_battle_elite_four_pushButton")
+        self.cancel_battle_elite_four_pushButton.setGeometry(QRect(440, 400, 31, 31))
+        self.gridLayoutWidget_2 = QWidget(self.battle_elite_four_widget)
+        self.gridLayoutWidget_2.setObjectName(u"gridLayoutWidget_2")
+        self.gridLayoutWidget_2.setGeometry(QRect(30, 70, 411, 357))
+        self.gridLayout_2 = QGridLayout(self.gridLayoutWidget_2)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.elite2_pushButton = QPushButton(self.gridLayoutWidget_2)
+        self.elite2_pushButton.setObjectName(u"elite2_pushButton")
+
+        self.gridLayout_2.addWidget(self.elite2_pushButton, 0, 1, 1, 1)
+
+        self.elite4_pushButton = QPushButton(self.gridLayoutWidget_2)
+        self.elite4_pushButton.setObjectName(u"elite4_pushButton")
+
+        self.gridLayout_2.addWidget(self.elite4_pushButton, 1, 1, 1, 1)
+
+        self.elite3_pushButton = QPushButton(self.gridLayoutWidget_2)
+        self.elite3_pushButton.setObjectName(u"elite3_pushButton")
+
+        self.gridLayout_2.addWidget(self.elite3_pushButton, 1, 0, 1, 1)
+
+        self.elite1_pushButton = QPushButton(self.gridLayoutWidget_2)
+        self.elite1_pushButton.setObjectName(u"elite1_pushButton")
+
+        self.gridLayout_2.addWidget(self.elite1_pushButton, 0, 0, 1, 1)
+
+        self.verticalLayoutWidget_8 = QWidget(self.battle_elite_four_widget)
+        self.verticalLayoutWidget_8.setObjectName(u"verticalLayoutWidget_8")
+        self.verticalLayoutWidget_8.setGeometry(QRect(30, 50, 411, 21))
+        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_8)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.region_name_elite_four_label = QLabel(self.verticalLayoutWidget_8)
+        self.region_name_elite_four_label.setObjectName(u"region_name_elite_four_label")
+        self.region_name_elite_four_label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.region_name_elite_four_label)
+
+        self.battle_pokemon_widget = QWidget(self.centralwidget)
+        self.battle_pokemon_widget.setObjectName(u"battle_pokemon_widget")
+        self.battle_pokemon_widget.setGeometry(QRect(0, 0, 471, 431))
+        self.battle_pokemon_widget.setVisible(True)
+        self.cancel_pokemon_pushButton = QPushButton(self.battle_pokemon_widget)
+        self.cancel_pokemon_pushButton.setObjectName(u"cancel_pokemon_pushButton")
+        self.cancel_pokemon_pushButton.setGeometry(QRect(440, 400, 31, 31))
+        self.cancel_pokemon_pushButton.setCursor(QCursor(Qt.ArrowCursor))
+        self.gridLayoutWidget_3 = QWidget(self.battle_pokemon_widget)
+        self.gridLayoutWidget_3.setObjectName(u"gridLayoutWidget_3")
+        self.gridLayoutWidget_3.setGeometry(QRect(30, 20, 411, 321))
+        self.gridLayout_3 = QGridLayout(self.gridLayoutWidget_3)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.attack2_pushButton = QPushButton(self.gridLayoutWidget_3)
+        self.attack2_pushButton.setObjectName(u"attack2_pushButton")
+
+        self.gridLayout_3.addWidget(self.attack2_pushButton, 0, 1, 1, 1)
+
+        self.attack4_pushButton = QPushButton(self.gridLayoutWidget_3)
+        self.attack4_pushButton.setObjectName(u"attack4_pushButton")
+
+        self.gridLayout_3.addWidget(self.attack4_pushButton, 1, 1, 1, 1)
+
+        self.attack3_pushButton = QPushButton(self.gridLayoutWidget_3)
+        self.attack3_pushButton.setObjectName(u"attack3_pushButton")
+
+        self.gridLayout_3.addWidget(self.attack3_pushButton, 1, 0, 1, 1)
+
+        self.attack1_pushButton = QPushButton(self.gridLayoutWidget_3)
+        self.attack1_pushButton.setObjectName(u"attack1_pushButton")
+
+        self.gridLayout_3.addWidget(self.attack1_pushButton, 0, 0, 1, 1)
+
+        self.horizontalLayoutWidget_4 = QWidget(self.battle_pokemon_widget)
+        self.horizontalLayoutWidget_4.setObjectName(u"horizontalLayoutWidget_4")
+        self.horizontalLayoutWidget_4.setGeometry(QRect(30, 360, 411, 25))
+        self.horizontalLayout_2 = QHBoxLayout(self.horizontalLayoutWidget_4)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.swap1_pushButton = QPushButton(self.horizontalLayoutWidget_4)
+        self.swap1_pushButton.setObjectName(u"swap1_pushButton")
+        self.swap1_pushButton.setEnabled(False)
+
+        self.horizontalLayout_2.addWidget(self.swap1_pushButton)
+
+        self.swap2_pushButton = QPushButton(self.horizontalLayoutWidget_4)
+        self.swap2_pushButton.setObjectName(u"swap2_pushButton")
+
+        self.horizontalLayout_2.addWidget(self.swap2_pushButton)
+
+        self.swap3_pushButton = QPushButton(self.horizontalLayoutWidget_4)
+        self.swap3_pushButton.setObjectName(u"swap3_pushButton")
+
+        self.horizontalLayout_2.addWidget(self.swap3_pushButton)
+
+        self.forfeit_pushButton = QPushButton(self.horizontalLayoutWidget_4)
+        self.forfeit_pushButton.setObjectName(u"forfeit_pushButton")
+
+        self.horizontalLayout_2.addWidget(self.forfeit_pushButton)
+
         MainWindow.setCentralWidget(self.centralwidget)
+        self.battle_gym_widget.raise_()
+        self.battle_widget.raise_()
         self.main_widget.raise_()
         self.pokeball_fish_widget.raise_()
         self.pokeball_widget.raise_()
-        self.battle_widget.raise_()
+        self.battle_elite_four_widget.raise_()
+        self.battle_pokemon_widget.raise_()
 
         self.retranslateUi(MainWindow)
         self.pokemon_pushButton.released.connect(self.pokeball_widget.show)
@@ -349,5 +523,30 @@ class Ui_MainWindow(object):
         self.npc_xp_1_pushButton.setText(QCoreApplication.translate("MainWindow", u"NPC 675725560470831125", None))
         self.npc_xp_2_pushButton.setText(QCoreApplication.translate("MainWindow", u"NPC 508692505810698241", None))
         self.cancel_battle_pushButton.setText(QCoreApplication.translate("MainWindow", u"X", None))
+        self.cancel_battle_gym_pushButton.setText(QCoreApplication.translate("MainWindow", u"X", None))
+        self.arena2_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 2", None))
+        self.arena3_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 3", None))
+        self.arena4_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 4", None))
+        self.arena1_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 1", None))
+        self.arena6_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 6", None))
+        self.arena8_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 8", None))
+        self.arena7_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 7", None))
+        self.arena5_pushButton.setText(QCoreApplication.translate("MainWindow", u"Arena 5", None))
+        self.region_name_gym_label.setText(QCoreApplication.translate("MainWindow", u"Nom de la r\u00e9gion", None))
+        self.cancel_battle_elite_four_pushButton.setText(QCoreApplication.translate("MainWindow", u"X", None))
+        self.elite2_pushButton.setText(QCoreApplication.translate("MainWindow", u" Elite #2", None))
+        self.elite4_pushButton.setText(QCoreApplication.translate("MainWindow", u"Elite #4", None))
+        self.elite3_pushButton.setText(QCoreApplication.translate("MainWindow", u"Elite #3", None))
+        self.elite1_pushButton.setText(QCoreApplication.translate("MainWindow", u" Elite #1", None))
+        self.region_name_elite_four_label.setText(QCoreApplication.translate("MainWindow", u"Nom de la r\u00e9gion", None))
+        self.cancel_pokemon_pushButton.setText(QCoreApplication.translate("MainWindow", u"X", None))
+        self.attack2_pushButton.setText(QCoreApplication.translate("MainWindow", u"Attack #2", None))
+        self.attack4_pushButton.setText(QCoreApplication.translate("MainWindow", u"Attack #4", None))
+        self.attack3_pushButton.setText(QCoreApplication.translate("MainWindow", u"Attack #3", None))
+        self.attack1_pushButton.setText(QCoreApplication.translate("MainWindow", u"Attack #1", None))
+        self.swap1_pushButton.setText(QCoreApplication.translate("MainWindow", u"Swap 1", None))
+        self.swap2_pushButton.setText(QCoreApplication.translate("MainWindow", u"Swap 2", None))
+        self.swap3_pushButton.setText(QCoreApplication.translate("MainWindow", u"Swap 3", None))
+        self.forfeit_pushButton.setText(QCoreApplication.translate("MainWindow", u"Forfeit", None))
     # retranslateUi
 
