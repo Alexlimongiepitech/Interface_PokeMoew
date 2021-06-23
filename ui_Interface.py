@@ -44,6 +44,7 @@ class Ui_MainWindow(object):
     def update_pos(self):
         self.pos = backend.find_discord_chat()
         self.pos_str = "X = " + str(self.pos[0]) + " | Y = " + str(self.pos[1])
+        self.discord_chat_x_y.setText(self.pos_str)
 
     def pokemon_pushButton_fonction(self):
         self.update_pos()
@@ -1136,12 +1137,12 @@ class Ui_MainWindow(object):
         self.forfeit_pushButton.released.connect(self.forfeit_pushButton_fonction)
 
         ###
-        self.discord_chat_pushButton.released.connect(MainWindow.showMinimized)
+        self.discord_chat_pushButton.released.connect(self.update_pos)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Interface_PokeMoew"))
         self.pokemon_pushButton.setText(_translate("MainWindow", "Pokemon"))
         self.fish_pushButton.setText(_translate("MainWindow", "Fish"))
         self.discord_chat_pushButton.setText(_translate("MainWindow", "Discord Chat"))

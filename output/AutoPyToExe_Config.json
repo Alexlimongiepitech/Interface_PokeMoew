@@ -1,0 +1,93 @@
+{
+ "version": "auto-py-to-exe-configuration_v1",
+ "pyinstallerOptions": [
+  {
+   "optionDest": "noconfirm",
+   "value": true
+  },
+  {
+   "optionDest": "filenames",
+   "value": "S:/Utilsateur Alex/Documents/Dev/Perso/Interface_PokeMoew/ui_Interface.py"
+  },
+  {
+   "optionDest": "onefile",
+   "value": true
+  },
+  {
+   "optionDest": "console",
+   "value": false
+  },
+  {
+   "optionDest": "name",
+   "value": "Interface_PokeMoew"
+  },
+  {
+   "optionDest": "ascii",
+   "value": false
+  },
+  {
+   "optionDest": "clean_build",
+   "value": true
+  },
+  {
+   "optionDest": "debug",
+   "value": "all"
+  },
+  {
+   "optionDest": "strip",
+   "value": false
+  },
+  {
+   "optionDest": "noupx",
+   "value": false
+  },
+  {
+   "optionDest": "uac_admin",
+   "value": false
+  },
+  {
+   "optionDest": "uac_uiaccess",
+   "value": false
+  },
+  {
+   "optionDest": "win_private_assemblies",
+   "value": false
+  },
+  {
+   "optionDest": "win_no_prefer_redirects",
+   "value": false
+  },
+  {
+   "optionDest": "bootloader_ignore_signals",
+   "value": false
+  },
+  {
+   "optionDest": "pathex",
+   "value": "S:/Utilsateur Alex/Documents/Dev/Perso/Interface_PokeMoew/venv/Lib/site-packages"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "pyautogui"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "pygetwindow as gw"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "PyQt5"
+  },
+  {
+   "optionDest": "hiddenimports",
+   "value": "time"
+  },
+  {
+   "optionDest": "datas",
+   "value": "S:/Utilsateur Alex/Documents/Dev/Perso/Interface_PokeMoew/img/;."
+  }
+ ],
+ "nonPyinstallerOptions": {
+  "increaseRecursionLimit": true,
+  "manualArguments": ""
+ }
+}

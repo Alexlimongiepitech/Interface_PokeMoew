@@ -1,5 +1,5 @@
 import pyautogui
-import pygetwindow as gw
+import pygetwindow
 
 
 CURSOR_POS = []
@@ -7,9 +7,7 @@ CURSOR_POS = []
 
 def find_discord_chat():
     activate_discord()
-    discord_chat_locate = pyautogui.locateOnScreen(
-        "resource/img/discord_chat.png", confidence=0.7
-    )
+    discord_chat_locate = pyautogui.locateOnScreen(r"discord_chat.png", confidence=0.7)
     if discord_chat_locate != None:
         # print(discord_chat_locate)
         # pyautogui.moveTo(discord_chat_locate.left - 59, discord_chat_locate.top + 18)
@@ -31,16 +29,16 @@ def send_on_discord_chat(pos, message):
 def back_old_windows():
     try:
         pyautogui.moveTo(CURSOR_POS[0], CURSOR_POS[1])
-        old_windows = gw.getWindowsWithTitle("MainWindow")[0]
+        old_windows = pygetwindow.getWindowsWithTitle("Interface_PokeMoew")[0]
         old_windows.activate()
-    except (gw.PyGetWindowException, IndexError):
+    except (pygetwindow.PyGetWindowException, IndexError):
         pass
 
 
 def activate_discord():
     global CURSOR_POS
     CURSOR_POS = pyautogui.position()
-    discord_windows = gw.getWindowsWithTitle("Discord")[0]
+    discord_windows = pygetwindow.getWindowsWithTitle("Discord")[0]
     discord_windows.activate()
     back_old_windows()
 
